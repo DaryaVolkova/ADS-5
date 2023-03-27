@@ -4,7 +4,7 @@
 #define size 100
 #include <string>
 
-template <class T, int size>
+template <class T>
 class Tstack {
  private:
         T array[size];
