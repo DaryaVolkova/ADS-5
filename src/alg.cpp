@@ -3,12 +3,16 @@
 #include <map>
 #include "tstack.h"
 
-short int priority(char ch) {
+int priority(char ch) {
     if (ch == '(') return 0;
-    else if (ch == ')') return 1;
-    else if (ch == '+' || ch == '-') return 2;
-    else if (ch == '*' || ch == '/') return 3;
-    else return -1;
+    else
+        if (ch == ')') return 1;
+    else
+        if (ch == '+' || ch == '-') return 2;
+    else
+        if (ch == '*' || ch == '/') return 3;
+    else
+        return -1;
 }
 
 bool isNum(char ch) {
@@ -25,7 +29,7 @@ int len(std::string str) {
     return res;
 }
 
-unsigned short int convertToInt(char ch) {
+int convertToInt(char ch) {
     char key[10] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
     int left = 0, right = sizeof(key) - 1;
     int mid = 0;
@@ -35,7 +39,7 @@ unsigned short int convertToInt(char ch) {
             left = mid + 1;
         } else if (ch < key[mid]) {
             right = mid - 1;
-        } else 
+        } else
           return mid;
     }
     return mid;
@@ -48,7 +52,7 @@ std::string infx2pstfx(std::string inf) {
     int i = 0;
     char ch = inf[i];
     while (ch != '\0') {
-        if (isNum(ch)) {
+        if (isNum(ch)){
             result = result + ch + ' ';
         } else {
             if (ch == ')') {
