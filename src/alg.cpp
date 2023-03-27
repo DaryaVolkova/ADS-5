@@ -92,7 +92,6 @@ std::string infx2pstfx(std::string inf) {
 int eval(std::string pref) {
     Tstack<int, 100> st_int;
     int l = len(pref);
-    std::cout << "len = " << l << std::endl;
     int tmp1 = 0, tmp2 = 0, res_tmp = 0, result = 0;
     int i = 0;
     char ch = pref[0];
