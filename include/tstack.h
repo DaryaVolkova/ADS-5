@@ -1,13 +1,12 @@
 // Copyright 2021 NNTU-CS
 #ifndef INCLUDE_TSTACK_H_
 #define INCLUDE_TSTACK_H_
-#define size 100
 #include <string>
 
 template <class T>
 class Tstack {
  private:
-        T array[size];
+        T array[100];
         int top;
 
  public:
@@ -28,7 +27,7 @@ class Tstack {
             return array[top];
         }
         bool isFull() const {
-            return (top == size);
+            return (top == 100);
         }
         bool isEmpty() const {
             return (top == -1);
