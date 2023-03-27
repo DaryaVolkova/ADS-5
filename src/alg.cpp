@@ -36,8 +36,9 @@ int convertToInt(char ch) {
             left = mid + 1;
         } else if (ch < key[mid]) {
             right = mid - 1;
-        } else
+        } else {
             return mid;
+        }
     }
     return mid;
 }
@@ -52,7 +53,7 @@ std::string infx2pstfx(std::string inf) {
         if (isNum(ch)) {
             result = result + ch + " ";
         } else {
-            if (ch == ')') {
+            if (ch == ')')  {
                 if (!stch.isEmpty()){
                     tmp = stch.pop();
                     while (tmp != '(') {
@@ -95,8 +96,7 @@ int eval(std::string pref) {
         if (ch != ' ') {
             if (isNum(ch)) {
                 st_int.push(convertToInt(ch));
-            }
-            else {
+            } else {
                 if (!st_int.isEmpty()) tmp1 = st_int.pop();
                 if (!st_int.isEmpty()) tmp2 = st_int.pop();
                 if (ch == '+') res_tmp = tmp2 + tmp1;
