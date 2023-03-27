@@ -5,12 +5,9 @@
 
 int p(char ch) {
     if (ch == '(') return 0;
-    else
-        if (ch == ')') return 1;
-    else
-        if (ch == '+' || ch == '-') return 2;
-    else
-        if (ch == '*' || ch == '/') return 3;
+    else if (ch == ')') return 1;
+    else if (ch == '+' || ch == '-') return 2;
+    else if (ch == '*' || ch == '/') return 3;
     else
         return -1;
 }
@@ -37,11 +34,9 @@ int convertToInt(char ch) {
         mid = (left + right) / 2;
         if (ch > key[mid]) {
             left = mid + 1;
-        }
-        else if (ch < key[mid]) {
+        } else if (ch < key[mid]) {
             right = mid - 1;
-        }
-        else
+        } else
             return mid;
     }
     return mid;
@@ -56,8 +51,7 @@ std::string infx2pstfx(std::string inf) {
     while (ch != '\0') {
         if (isNum(ch)) {
             result = result + ch + " ";
-        }
-        else {
+        } else {
             if (ch == ')') {
                 if (!stch.isEmpty()){
                     tmp = stch.pop();
@@ -67,11 +61,9 @@ std::string infx2pstfx(std::string inf) {
                                 tmp = stch.pop();
                     }
                 }
-            }
-            else if ((stch.isEmpty()) || ch == '(' || p(ch) > p(stch.get())) {
+            } else if ((stch.isEmpty()) || ch == '(' || p(ch) > p(stch.get())) {
                 stch.push(ch);
-            }
-            else if ((!stch.isEmpty())&&(p(ch) <= p(stch.get()))) {
+            } else if ((!stch.isEmpty())&&(p(ch) <= p(stch.get()))) {
                 while ((!stch.isEmpty())&&(p(ch) <= p(stch.get()))) {
                     tmp = stch.pop();
                     result = result + tmp + " ";
