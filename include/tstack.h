@@ -5,10 +5,11 @@
 
 template <class T, int size>
 class Tstack {
-    private:
+ private:
         T array[size];
         int top;
-    public:
+
+ public:
         Tstack() :top(-1) {}
         void push(T value) {
             if (isFull())
