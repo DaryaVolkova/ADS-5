@@ -54,7 +54,7 @@ std::string infx2pstfx(std::string inf) {
             result = result + ch + " ";
         } else {
             if (ch == ')')  {
-                if (!stch.isEmpty()){
+                if (!stch.isEmpty()) {
                     tmp = stch.pop();
                     while (tmp != '(') {
                         result = result + tmp + " ";
