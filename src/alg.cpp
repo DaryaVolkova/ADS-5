@@ -8,7 +8,8 @@ int priority(char ch) {
     else if (ch == ')') return 1;
     else if (ch == '+' || ch == '-') return 2;
     else if (ch == '*' || ch == '/') return 3;
-    else return -1;
+    else
+        return -1;
 }
 
 bool isNum(char ch) {
@@ -33,12 +34,10 @@ int convertToInt(char ch) {
         mid = (left + right) / 2;
         if (ch > key[mid]) {
             left = mid + 1;
-        }
-        else
+        }else
             if (ch < key[mid]) {
                 right = mid - 1;
-        }
-        else
+        }else
             return mid;
     }
     return mid;
@@ -53,9 +52,9 @@ std::string infx2pstfx(std::string inf) {
     while (ch != '\0') {
         if (isNum(ch)) {
             result = result + ch + " ";
-        }else{
+        } else{
             if (ch == ')') {
-                if (!st_char.isEmpty()){
+                if (!st_char.isEmpty()) {
                     tmp = st_char.pop();
                     while (tmp != '(') {
                         result = result + tmp + " ";
@@ -63,16 +62,18 @@ std::string infx2pstfx(std::string inf) {
                             tmp = st_char.pop();
                     }
                 }
-            }else
+            } else{
                 if ((st_char.isEmpty()) || ch == '(' || priority(ch) > priority(st_char.get())) {
                     st_char.push(ch);
-			}else
+                }
+            }else{
                 if ((!st_char.isEmpty())&&(priority(ch) <= priority(st_char.get()))) {
                     while ((!st_char.isEmpty())&&(priority(ch) <= priority(st_char.get()))) {
                         tmp = st_char.pop();
                         result = result + tmp + " ";
                     }
                 st_char.push(ch);
+                }
             }
         }
         ++i;
